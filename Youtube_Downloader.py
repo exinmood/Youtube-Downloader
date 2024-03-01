@@ -1,7 +1,5 @@
 from tkinter import *
-
-#create by Exin
-
+# # # #
 window = Tk()
 window.title("Youtube Downloader")
 window.minsize(450,170)
