@@ -1,5 +1,8 @@
 ### used tk for creating app ###
 from tkinter import *
+from tkinter import messagebox
+from tkinter.filedialog import askdirectory
+import pytube
 
 ### size and title ###
 window = Tk()
@@ -8,18 +11,24 @@ window.minsize(450,175)
 window.maxsize(450,175)
 
 ### Functions ###
-def open():
-    print("open file")
+def one():
+    directory = askdirectory(initialdir="" , title="Save")
+    d_var.set(directory)
+    print (directory)
 
-def Download():
-    print("Downloading the file")
+def tow():
+    messagebox.showinfo(title="Can Not!" , message="this app is not download video\n(in next update)")
+    
+   
 
-lb1 = Label(window , text='Link:' , fg='black' , font=100 , bg='white')
+d_var = StringVar()
+
+lb1 = Label(window , text='    Link    :' , fg='black' , font=100 , bg='white')
 lb2 = Label(window , text='Directory:' , font=100 , bg='white')
 en1 = Entry(window , width=20 , font=60 )
-en2 = Entry(window , width=20 , font=60)
-bn1 = Button(window , text='Open' , fg='white' , bg='black' , command=open)
-bn2 = Button(window , text='Download', bg='green' , font=100 , height=2, width=13 , command=Download )
+en2 = Entry(window , width=20 , font=60 , textvariable=d_var)
+bn1 = Button(window , text='Open' , fg='white' , bg='black' , command=one)
+bn2 = Button(window , text='Download', bg='green' , font=100 , height=2, width=13 , command=tow)
 
 lb1.grid(padx=10, pady=4 , sticky='w')
 lb2.grid(padx=10, pady=10)
